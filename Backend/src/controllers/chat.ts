@@ -1,6 +1,5 @@
-import Chat from "#/models/Chat";
+import Chat from "../models/Chat";
 import { RequestHandler } from "express";
-import { ObjectId } from "mongoose";
 
 interface AddChatRequest {
   body: {

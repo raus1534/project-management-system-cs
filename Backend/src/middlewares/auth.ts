@@ -1,7 +1,7 @@
 import { RequestHandler } from "express";
 import { JwtPayload, verify } from "jsonwebtoken";
-import { JWT_SECRET } from "#/utils/envs";
-import User from "#/models/User";
+import { JWT_SECRET } from "../utils/envs";
+import User from "../models/User";
 
 export const isAuth: RequestHandler = async (req, res, next) => {
   const { authorization } = req.headers;

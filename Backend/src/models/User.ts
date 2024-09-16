@@ -1,4 +1,4 @@
-import { departments, departmentsTypes } from "#/utils/department";
+import { departments, departmentsTypes } from "../utils/department";
 import { compare, hash } from "bcrypt";
 import { Model, model, ObjectId, Schema } from "mongoose";
 

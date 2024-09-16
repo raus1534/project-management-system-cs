@@ -1,4 +1,4 @@
-import { CLOUD_KEY, CLOUD_NAME, CLOUD_SECRET } from "#/utils/envs";
+import { CLOUD_KEY, CLOUD_NAME, CLOUD_SECRET } from "../utils/envs";
 import { v2 as cloudinary } from "cloudinary";
 
 cloudinary.config({

@@ -3,10 +3,10 @@ import {
   getAllUserName,
   sendProfile,
   signIn,
-} from "#/controllers/auth";
-import { isAdmin, isAuth } from "#/middlewares/auth";
-import { validate } from "#/middlewares/validator";
-import { SignInValidationSchema } from "#/utils/validationSchema";
+} from "../controllers/auth";
+import { isAdmin, isAuth } from "../middlewares/auth";
+import { validate } from "../middlewares/validator";
+import { SignInValidationSchema } from "../utils/validationSchema";
 import { Router } from "express";
 
 const routes = Router();

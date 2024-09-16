@@ -1,10 +1,10 @@
-import { RequestWithFiles } from "#/middlewares/fileParser";
-import User from "#/models/User";
+import { RequestWithFiles } from "../middlewares/fileParser";
+import User from "../models/User";
 import { RequestHandler } from "express";
 import formidable from "formidable";
-import cloudinary from "#/cloud";
-import { generatePassword } from "#/utils/helper";
-import { sendWelcomeMessage } from "#/utils/mail";
+import cloudinary from "../cloud";
+import { generatePassword } from "../utils/helper";
+import { sendWelcomeMessage } from "../utils/mail";
 
 export interface CreateUser extends RequestWithFiles {
   body: {
@@ -34,6 +34,7 @@ export const createUser: RequestHandler = async (req: CreateUser, res) => {
     height: 300,
     crop: "thumb",
     gravity: "face",
+    folder: "CSPMS/Users",
   });
   user.avatar = {
     url: avatarRes.secure_url,

@@ -1,8 +1,7 @@
-import User, { UserDocument } from "#/models/User";
+import User from "../models/User";
 import jwt from "jsonwebtoken";
 import { RequestHandler } from "express";
-import { JWT_SECRET } from "#/utils/envs";
-import { departments } from "#/utils/department";
+import { JWT_SECRET } from "../utils/envs";
 
 export const signIn: RequestHandler = async (req, res) => {
   const { email, password } = req.body;

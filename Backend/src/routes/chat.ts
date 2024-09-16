@@ -1,7 +1,7 @@
-import { addChat } from "#/controllers/chat";
-import { isAuth } from "#/middlewares/auth";
-import { validate } from "#/middlewares/validator";
-import { AddChatSchema } from "#/utils/validationSchema";
+import { addChat } from "../controllers/chat";
+import { isAuth } from "../middlewares/auth";
+import { validate } from "../middlewares/validator";
+import { AddChatSchema } from "../utils/validationSchema";
 import { Router } from "express";
 
 const routes = Router();

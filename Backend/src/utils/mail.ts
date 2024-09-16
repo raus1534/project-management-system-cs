@@ -1,6 +1,10 @@
 import nodemailer from "nodemailer";
 import path from "path";
-import { MAILTRAP_PASS, MAILTRAP_USER, VERIFICATION_EMAIL } from "#/utils/envs";
+import {
+  MAILTRAP_PASS,
+  MAILTRAP_USER,
+  VERIFICATION_EMAIL,
+} from "../utils/envs";
 import { generateTemplate } from "./mailTemplate";
 
 const generateMailTransporter = () => {
@@ -38,7 +42,7 @@ export const sendWelcomeMessage = async (profile: Profile) => {
       message: welcomeMessage,
       logo: "cid:logo",
       banner: "cid:welcome",
-      link: "#",
+      link: "..",
       btnTitle: password,
     }),
     attachments: [

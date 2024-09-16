@@ -1,4 +1,4 @@
-import { createUser } from "#/controllers/admin";
+import { createUser } from "../controllers/admin";
 import {
   createTask,
   deleteTask,
@@ -8,10 +8,10 @@ import {
   getTaskInfo,
   markTaskAsCompleted,
   updateTask,
-} from "#/controllers/task";
-import { isAdmin, isAuth } from "#/middlewares/auth";
-import { validate } from "#/middlewares/validator";
-import { CreateTaskSchema } from "#/utils/validationSchema";
+} from "../controllers/task";
+import { isAdmin, isAuth } from "../middlewares/auth";
+import { validate } from "../middlewares/validator";
+import { CreateTaskSchema } from "../utils/validationSchema";
 import { Router } from "express";
 
 const routes = Router();

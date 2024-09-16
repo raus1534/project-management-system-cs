@@ -1,6 +1,6 @@
-import { RequestWithFiles } from "#/middlewares/fileParser";
-import Chat from "#/models/Chat";
-import Task from "#/models/Task";
+import { RequestWithFiles } from "../middlewares/fileParser";
+import Chat from "../models/Chat";
+import Task from "../models/Task";
 import { RequestHandler } from "express";
 import { isValidObjectId, Types } from "mongoose";
 
