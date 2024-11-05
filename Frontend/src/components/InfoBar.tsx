@@ -20,35 +20,45 @@ export default function InfoBar() {
 
   useEffect(() => {
     getUser();
-    console.log(users);
   }, []);
+
   return (
-    <div className="flex flex-col justify-center p-2 border-l-2 border-r border-black w-72 ">
-      <div className="flex flex-col items-center h-[95%] space-y-4">
-        <List className="">
-          {users.map(({ name, avatar, department }) => {
-            return (
-              <ListItem className="border-b-2 border-primary">
-                <ListItemPrefix>
-                  <Avatar variant="circular" alt="candice" src={avatar?.url} />
-                </ListItemPrefix>
-                <div>
-                  <Typography variant="h6" color="blue-gray">
-                    {name}
-                  </Typography>
-                  <Typography
-                    variant="small"
-                    color="gray"
-                    className="font-normal"
-                  >
-                    {department}
-                  </Typography>
-                </div>
-              </ListItem>
-            );
-          })}
-        </List>
-      </div>
+    <div className="flex flex-col h-[90vh] overflow-scroll px-6 py-4 bg-white border-l border-gray-300 shadow-lg dark:border-gray-700 w-80 dark:bg-gray-900">
+      <Typography
+        variant="h5"
+        className="mb-4 font-semibold text-gray-800 dark:text-gray-100"
+      >
+        Team Members
+      </Typography>
+      <List className="space-y-2">
+        {users.map(({ name, avatar, department }) => (
+          <ListItem className="flex items-center px-4 py-3 transition-colors rounded-lg hover:bg-gray-100 dark:hover:bg-gray-800">
+            <ListItemPrefix>
+              <Avatar
+                variant="circular"
+                alt={name}
+                src={avatar?.url}
+                className="border border-gray-200 dark:border-gray-700"
+                size="lg"
+              />
+            </ListItemPrefix>
+            <div className="ml-4">
+              <Typography
+                variant="h6"
+                className="font-medium dark:text-gray-100"
+              >
+                {name}
+              </Typography>
+              <Typography
+                variant="small"
+                className="text-sm dark:text-gray-400"
+              >
+                {department}
+              </Typography>
+            </div>
+          </ListItem>
+        ))}
+      </List>
     </div>
   );
 }

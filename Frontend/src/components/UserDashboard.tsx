@@ -25,9 +25,9 @@ export default function UserDashboard() {
   }, []);
 
   return (
-    <div className="p-2 space-y-4">
+    <div className="p-2 space-y-4 h-[90vh] dark:bg-gray-900 dark:text-white bg-white text-gray-900">
       <div className="h-[78vh] overflow-scroll">
-        <div className="flex flex-col justify-between px-3">
+        <div className="flex flex-col justify-between px-3 space-y-3">
           <h1 className="text-3xl font-bold">Ongoing Tasks</h1>
           <div className="flex flex-wrap space-x-3 space-y-3">
             {tasks?.map(

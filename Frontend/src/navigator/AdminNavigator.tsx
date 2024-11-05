@@ -11,7 +11,7 @@ import { Route, Routes } from "react-router";
 export default function AdminNavigator() {
   return (
     <>
-      <div className="flex h-screen">
+      <div className="flex h-screen ">
         <SideNavbar />
         <div className="flex flex-col flex-1 h-screen">
           <Header />

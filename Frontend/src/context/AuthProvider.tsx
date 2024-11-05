@@ -83,7 +83,7 @@ export default function AuthProvider({ children }: { children: ReactNode }) {
   const handleLogout = () => {
     localStorage.removeItem("auth-token");
     setAuthInfo({ ...defaultAuthInfo });
-    navigate("/signin", { replace: true });
+    navigate("/", { replace: true });
   };
 
   useEffect(() => {

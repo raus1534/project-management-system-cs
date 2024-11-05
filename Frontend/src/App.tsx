@@ -3,7 +3,6 @@ import { AuthContextType } from "@context/AuthProvider";
 import AdminNavigator from "navigator/AdminNavigator";
 import { Route, Routes } from "react-router";
 import SignIn from "@components/auth/SignIn";
-import Home from "@components/Home";
 import UserNavigator from "navigator/UserNavigator";
 
 export default function App() {
@@ -16,8 +15,7 @@ export default function App() {
   return (
     <>
       <Routes>
-        <Route path="/signin" element={<SignIn />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/" element={<SignIn />} />
       </Routes>
     </>
   );

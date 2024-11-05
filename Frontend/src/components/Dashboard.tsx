@@ -15,56 +15,51 @@ export default function Dashboard() {
     if (error) return updateNotification("error", error);
     setTasks([...tasks]);
   };
-  // @ts-ignore
 
   useEffect(() => {
     getOngoing();
   }, []);
 
   return (
-    <div className="p-2 space-y-4">
-      <div className="flex justify-end space-x-3">
+    <div className="h-[90vh] p-4 text-gray-900 bg-gray-100 dark:bg-gray-900 dark:text-gray-100">
+      <header className="flex items-center justify-between mb-6">
+        <h1 className="text-4xl font-extrabold text-gray-900 dark:text-gray-100">
+          Dashboard
+        </h1>
+      </header>
+
+      <div className="flex justify-end mb-6 space-x-4">
         <button
-          className="flex justify-center align-center select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none  space-x-1 active:opacity-[0.85] active:shadow-none"
-          type="button"
-          onClick={() => {
-            navigate("/addUser");
-          }}
+          className="px-4 py-2 font-semibold text-white transition bg-blue-600 rounded-md hover:bg-blue-700"
+          onClick={() => navigate("/addUser")}
         >
           Add User
         </button>
         <button
-          className="flex justify-center align-center select-none font-sans font-bold text-center uppercase transition-all disabled:opacity-50 disabled:shadow-none disabled:pointer-events-none text-xs py-3 px-6 rounded-lg bg-gray-900 text-white shadow-md shadow-gray-900/10 hover:shadow-lg hover:shadow-gray-900/20 focus:opacity-[0.85] focus:shadow-none  space-x-1 active:opacity-[0.85] active:shadow-none"
-          type="button"
-          onClick={() => {
-            navigate("/addTask");
-          }}
+          className="px-4 py-2 font-semibold text-white transition bg-green-600 rounded-md hover:bg-green-700"
+          onClick={() => navigate("/addTask")}
         >
           Add Task
         </button>
       </div>
-      <div className="h-[78vh] overflow-scroll">
-        <div className="flex flex-col justify-between px-3">
-          <h1 className="text-3xl font-bold">Ongoing Tasks</h1>
-          <div className="flex flex-wrap space-x-3 space-y-3">
-            {tasks.map(
-              ({ _id, title, description, assignedTo, dueDate }, index) => {
-                return (
-                  <Link to={"/task/" + _id}>
-                    <TaskCard
-                      key={index}
-                      title={title}
-                      description={description}
-                      users={assignedTo}
-                      dueDate={dueDate}
-                    />
-                  </Link>
-                );
-              }
-            )}
-          </div>
+
+      <section className="space-y-4">
+        <h2 className="mb-4 text-2xl font-bold text-gray-900 dark:text-gray-100">
+          Ongoing Tasks
+        </h2>
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          {tasks.map(({ _id, title, description, assignedTo, dueDate }) => (
+            <Link to={`/task/${_id}`} key={_id}>
+              <TaskCard
+                title={title}
+                description={description}
+                users={assignedTo}
+                dueDate={dueDate}
+              />
+            </Link>
+          ))}
         </div>
-      </div>
+      </section>
     </div>
   );
 }

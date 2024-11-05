@@ -19,6 +19,7 @@ interface Props {
   }[];
   dueDate: string;
 }
+
 export default function TaskCard({
   title,
   description,
@@ -26,32 +27,47 @@ export default function TaskCard({
   dueDate,
 }: Props) {
   return (
-    <Card className="max-w-[24rem] overflow-hidden shadow-xl">
+    <Card className="max-w-[24rem] p-4 transition-transform duration-300 hover:scale-105 hover:shadow-xl dark:bg-gray-800 bg-white rounded-lg shadow-md">
       <CardBody>
-        <Typography variant="h5" color="black">
-          {title}
-        </Typography>
-        <Typography variant="lead" color="gray" className="mt-3 font-normal">
+        {/* Title with Accent Border */}
+        <div className="pl-3 mb-4 border-l-4 border-blue-500">
+          <Typography variant="h5" className="font-semibold dark:text-gray-100">
+            {title}
+          </Typography>
+        </div>
+
+        {/* Task Description */}
+        <Typography
+          variant="lead"
+          color="gray"
+          className="mt-2 mb-4 dark:text-gray-300"
+        >
           {description}
         </Typography>
       </CardBody>
+
       <CardFooter className="flex items-center justify-between">
-        <div className="flex items-center space-x-3">
-          {users?.map(({ _id, name, department, avatar }) => {
-            return (
-              <Tooltip key={_id} content={name + " | " + department}>
-                <Avatar
-                  size="sm"
-                  variant="circular"
-                  alt="natali craig"
-                  src={avatar?.url}
-                  className="border-2 border-white hover:z-10"
-                />
-              </Tooltip>
-            );
-          })}
+        {/* Avatars of Assigned Users */}
+        <div className="flex -space-x-2">
+          {users?.map(({ _id, name, department, avatar }) => (
+            <Tooltip key={_id} content={`${name} | ${department}`}>
+              <Avatar
+                size="sm"
+                variant="circular"
+                src={avatar?.url}
+                className="transition-transform duration-200 border-2 border-white dark:border-gray-700 hover:scale-110 hover:z-10"
+                alt={name}
+              />
+            </Tooltip>
+          ))}
         </div>
-        <Typography className="font-normal">{formatDate(dueDate)}</Typography>
+
+        {/* Due Date */}
+        <div className="flex items-center">
+          <span className="px-3 py-1 text-xs font-medium text-gray-600 bg-gray-100 rounded-full dark:bg-gray-700 dark:text-gray-300">
+            {formatDate(dueDate)}
+          </span>
+        </div>
       </CardFooter>
     </Card>
   );

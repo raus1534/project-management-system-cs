@@ -62,10 +62,13 @@ export default function UserForm({ onSubmit, busy, initialValue }: Props) {
   }, [initialValue]);
 
   return (
-    <form className="p-5 space-y-5" onSubmit={handleSubmit}>
+    <form
+      className="p-5 space-y-5 bg-white dark:bg-gray-900 h-[90vh] dark:text-white text-gray-900"
+      onSubmit={handleSubmit}
+    >
       <div className="flex items-center space-x-4">
         <div className="relative inline-block mx-auto">
-          <div className="flex items-center justify-center overflow-hidden text-xl font-semibold border-2 rounded-full w-28 h-28 border-primary">
+          <div className="flex items-center justify-center overflow-hidden text-xl font-semibold border-2 border-gray-900 rounded-full w-28 h-28 dark:border-white">
             {avatarForUi ? (
               <img src={avatarForUi} className="w-28 h-28 " />
             ) : (
@@ -74,7 +77,7 @@ export default function UserForm({ onSubmit, busy, initialValue }: Props) {
           </div>
 
           <label
-            className="absolute right-0 bg-white rounded-full top-2"
+            className="absolute right-0 bg-white rounded-full dark:bg-black top-2"
             htmlFor="avatar"
           >
             <input
@@ -128,7 +131,7 @@ export default function UserForm({ onSubmit, busy, initialValue }: Props) {
         <select
           id="department"
           name="department"
-          className="w-full p-1 bg-transparent border-2 rounded outline-none dark:border-dark-subtle peer"
+          className="w-full p-1 text-gray-900 border-2 rounded outline-none dark:border-dark-subtle peer"
           value={userData.department}
           onChange={handleChange}
         >
